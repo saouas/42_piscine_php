@@ -1,0 +1,92 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<title>Balloon</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<style>
+		#balloon
+		{
+			height: 200px;
+			width: 200px;
+			border-radius: 50%;
+			background-color: red;
+		}
+	</style>
+
+	<script>
+		var first = true;
+		var count = 1;
+		var id = $('#balloon')[0];
+		function color_hover()
+		{
+			if (count == 2 || count == 1)
+			{
+				count = 3;
+			}
+			else if (count == 3)
+			{
+				count = 1;
+			}
+			else if (count > 3)
+			{
+				count = 2;
+			}
+			change_color(count);
+			up_size(-5, 0);
+		}
+		function check_size()
+		{
+			var div = $('#balloon')[0];
+			var height = balloon.offsetHeight;
+			var width = balloon.offsetWidth;
+
+			if (height > 420 || width > 420)
+			{
+				$('#balloon').css({"height" : "200px", "width": "200px"});
+			}
+			if(height < 200 || width < 200)
+			{
+				$('#balloon').css({"height" : "200px", "width": "200px"});
+			}
+		}
+		function change_color(id)
+		{
+			if (id == 1)
+				$('#balloon').css({"background-color": "red"})
+			if (id == 2)
+				$('#balloon').css({"background-color": "green"})
+			if (id == 3)
+				$('#balloon').css({"background-color": "blue"})
+		}
+		function up_size(size, flag)
+		{
+			var height_balloon =  $('#balloon').height();
+			var width_balloon = $('#balloon').width();
+			var new_height = height_balloon + size;
+			var new_width = width_balloon + size;
+			$('#balloon').css({"height": new_height + 'px', "width" : new_width + 'px'});
+			if (first == true)
+				{
+					count++;
+					first = false;
+				}	
+			if (count > 3 && flag != 0)
+				count = 1;
+			change_color(count);
+			check_size();
+			count++;
+
+		}
+	</script>
+</head>
+
+<body>
+<div id= "balloon" onclick="up_size(10)" onmouseleave="color_hover()">
+
+</div>
+
+</body>
+
+</html>

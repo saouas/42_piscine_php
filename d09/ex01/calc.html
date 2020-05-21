@@ -1,0 +1,107 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<title>Calculatrice</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<meta charset="UTF-8">
+	<style>
+	</style>
+
+	<script>
+		function print_msg()
+		{
+			alert('Please, use me...');
+		}
+		function isInteger(x) 
+		{
+   			 return x % 1 === 0;
+		}			
+		function check_number()
+		{
+			var x = $('nbr_left').val();
+			var y = $('nbr_right').val();
+			if (x < 0 || y < 0)
+			{
+				console.log('Error :(');
+				alert('Error :(');
+				exit();
+			}
+			if(isInteger(x,10) == false || isInteger(y,10) == false)
+			{
+				console.log('Error :(');
+				alert('Error :(');
+				exit();
+			}
+		}
+		function calcul_process()
+		{
+			var x = $('nbr_left').val();
+			var y = $('nbr_right').val();
+			var operator = $('operator').val();
+
+			switch(operator)
+			{
+				case "+":
+					return (+x + +y);
+				case "-":
+					return (x - y);
+				case "*":
+					return (x * y);
+				case "/":
+					return (x / y);
+				case "%":
+					return (x % y);
+				default :
+					break;
+			}
+		}
+
+		function calcul()
+		{
+			var x = $('nbr_left').val();
+			var y = $('nbr_right').val();
+			var operator = $('operator').val();
+			check_number();
+			var result = calcul_process();
+
+			if(y == 0 & (operator == "/" || operator == "%"))
+			{
+
+				console.log("It’s over 9000!");	
+				alert('It’s over 9000!');
+				exit();
+			}
+			else
+			{
+				console.log(result);	
+				alert(result);
+			}
+		}
+			setInterval(function print () { alert('Please, use me...');}, 30000);
+			window.history.replaceState(null, null, window.location.pathname); //used to hid urls params
+
+	</script>
+</head>
+
+<body>
+
+<div>
+	<form name = "form" onsubmit="return calcul()">
+		<input type ="text" name = "nbr_left">
+		<select name="operator">
+			<option value= "+">+</option>
+			<option value= "-">-</option>
+			<option value= "*">*</option>
+			<option value= "/">/</option>
+			<option value= "%">%</option>
+		</select>
+		<input type="right" name = "nbr_right">
+		<input type="submit" name ="submit" value="Try me!">
+	</form>
+</div>
+
+</body>
+
+</html>

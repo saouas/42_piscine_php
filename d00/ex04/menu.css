@@ -1,0 +1,135 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    font-family: OCR A Std, monospace;
+}
+
+nav
+{
+    width: 100%;
+    background-color:#424558;
+}
+nav > ul
+{
+    margin: 0;
+    padding: 0;
+}
+
+nav li
+{
+    list-style-type: none;
+}
+
+nav > ul::after
+{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+nav > ul > li
+{
+    float: left;
+    position:relative;
+}
+
+.sub_menu
+{
+    display: none;
+}
+
+nav a
+{
+    display: inline-block;
+    text-decoration: none;
+}
+
+nav > ul > li > a
+{
+    padding: 20px 30px;
+    color:#FFF;
+}
+
+nav > ul > li:hover a
+{
+padding: 15px 30px 20px 30px; 
+}
+
+nav li:hover .sub_menu
+{
+    display:inline-block;
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    padding : 0px;
+    z-index: 1000;
+}
+
+.sub_menu li
+{
+    border-bottom: 1px solid #CCC;
+}
+
+.sub_menu li a
+{
+    padding: 15px 30px;
+    font-size: 13px;
+    color: #222538;
+    width: 270px;
+}
+
+.box1:hover
+{
+    border-top: 5px solid #e44d26;
+    background-color: RGBa(228, 77, 38, 0.15);
+}
+
+.box2:hover
+{
+    border-top: 5px solid #0070bb;
+    background-color: RGBa(000, 112, 192, 0.15);
+}
+
+.box3:hover
+{
+    border-top: 5px solid #f1dc4f;
+    background-color: RGBa(241, 211, 79, 0.15);
+}
+
+.box4:hover
+{
+    border-top: 5px solid #BBB;
+    background-color: RGBa(220, 220, 220, 0.15);
+}
+
+.box1 .sub_menu
+{
+    background-color: RGBa(230, 100, 40);
+}
+
+.box2 .sub_menu
+{
+    background-color: RGBa(000, 160, 240);
+}
+
+.box3 .sub_menu
+{
+    background-color: RGBa(250, 215, 100);
+}
+
+.box4 .sub_menu
+{
+    background-color: RGBa(230, 230, 240);
+}
+
+.submenu li:hover a
+{
+    color:#EEE;
+    font-weight: bold;
+}
+
+.sub_menu li:hover
+{
+    background-color: rgb(138, 123, 123);
+}
